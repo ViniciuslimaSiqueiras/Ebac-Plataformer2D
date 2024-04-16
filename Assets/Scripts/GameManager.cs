@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
     public Transform startPoint;
 
     [Header("Animation")]
-    public float duration = .2f;
+    public float duration = 0.6f;
     public float delay = 0.5f;
     public Ease ease = Ease.OutBack;
 
@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
     {
         _currentPlayer = Instantiate(playerPrefab);
         _currentPlayer.transform.position = startPoint.position;
-        _currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
+        _currentPlayer.transform.DOScale(0, duration).SetEase(ease).From();
     }
 
 }
