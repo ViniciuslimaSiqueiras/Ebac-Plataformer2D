@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  speedRun: 25
   friction: {x: 0.5, y: 0}
   forceJump: 26
 --- !u!61 &1282856699
