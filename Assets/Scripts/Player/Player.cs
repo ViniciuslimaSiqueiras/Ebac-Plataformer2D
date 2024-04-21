@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class Player : MonoBehaviour
     private bool _isRunning;
     public float speed;
     public float speedRun;
+    [Header("WalkAnimation")]
+    public float jumpScaleY = 2.5f;
+    public float jumpScaleX = 1.5f;
+    public float animationDuration = .3f;
+    public Ease ease = Ease.OutBack;
+
+
 
     public Vector2 friction = new Vector2(-.1f,0);
 
@@ -66,6 +74,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * forceJump;
+            rb.transform.localScale = new Vector2(2, 2);
+            DOTween.Kill(rb.transform);
+            jumpAnimation();
+            
         }
+    }
+    public void jumpAnimation()
+    {
+        rb.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2,LoopType.Yoyo);
+        rb.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2,LoopType.Yoyo);
     }
 }
