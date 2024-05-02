@@ -9,6 +9,13 @@ public class EnemyBase : MonoBehaviour
     public Animator anim;
     public int hashTriggerAttack = Animator.StringToHash("Attack");
 
+    public HealthBase health;
+
+    private void Start()
+    {
+        health = GetComponent<HealthBase>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var health = collision.gameObject.GetComponent<HealthBase>();
@@ -24,6 +31,10 @@ public class EnemyBase : MonoBehaviour
     {
         anim.SetTrigger(hashTriggerAttack);
 
+    }
+    public void Damage(int amount)
+    {
+        health.Damage(amount);
     }
 
 }
