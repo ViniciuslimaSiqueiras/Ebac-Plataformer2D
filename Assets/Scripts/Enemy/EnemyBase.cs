@@ -8,13 +8,31 @@ public class EnemyBase : MonoBehaviour
 
     public Animator anim;
     public int hashTriggerAttack = Animator.StringToHash("Attack");
+    public int hashTriggerDeath = Animator.StringToHash("Death");
 
     public HealthBase health;
+    public int timeToDesroy = 1;
 
-    private void Start()
+    private void Awake()
+    {
+        if(health != null)
+        {
+            health.OnKill += OnEnemyKill;
+        }
+    }
+
+    private void OnValidate()
     {
         health = GetComponent<HealthBase>();
     }
+
+    public void OnEnemyKill()
+    {
+        health.OnKill -= OnEnemyKill;
+        PlayDeathAnimation();
+        Destroy(gameObject, 1f);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,6 +48,11 @@ public class EnemyBase : MonoBehaviour
     public void PlayAttackAnimation()
     {
         anim.SetTrigger(hashTriggerAttack);
+
+    }
+    public void PlayDeathAnimation()
+    {
+        anim.SetTrigger(hashTriggerDeath);
 
     }
     public void Damage(int amount)

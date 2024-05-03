@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     [Header("Player Animation")]
     private int boolRun = Animator.StringToHash("Run");
+    private int deathHash = Animator.StringToHash("Death");
     public Animator anim;
 
     [Header("Jump")]
@@ -27,6 +28,23 @@ public class Player : MonoBehaviour
 
 
     Rigidbody2D rb;
+
+    public HealthBase _health;
+
+    private void Awake()
+    {
+        if(_health != null)
+        {
+            _health.OnKill += OnPlayerDeath;
+        }
+    }
+
+    private void OnPlayerDeath()
+    {
+        _health.OnKill -= OnPlayerDeath;
+        anim.SetTrigger(deathHash);
+
+    }
 
     private void Start()
     {
@@ -108,5 +126,9 @@ public class Player : MonoBehaviour
     {
         rb.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2,LoopType.Yoyo);
         rb.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2,LoopType.Yoyo);
+    }
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
     }
 }

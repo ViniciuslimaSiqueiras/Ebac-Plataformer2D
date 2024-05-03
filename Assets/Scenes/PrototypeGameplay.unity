@@ -1574,6 +1574,11 @@ Transform:
   - {fileID: 684164746}
   m_Father: {fileID: 1826407750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539283698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 2015637711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &554008073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 10
   delayToKill: 0
-  destroyOnKill: 1
+  destroyOnKill: 0
   _flashColor: {fileID: 0}
 --- !u!114 &588861350
 MonoBehaviour:
@@ -2100,6 +2105,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8007466312498025151, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 2015637711}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &723227281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539283698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb3b9eb615b6ac4bafbc89d39d95794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1282856698}
 --- !u!1 &725501593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,7 +3630,9 @@ MonoBehaviour:
   damage: 10
   anim: {fileID: 0}
   hashTriggerAttack: 1080829965
+  hashTriggerDeath: 646380074
   health: {fileID: 0}
+  timeToDesroy: 0
 --- !u!4 &1271285832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2944973745361044811, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
@@ -3661,6 +3681,7 @@ MonoBehaviour:
   ease: 27
   anim: {fileID: 0}
   forceJump: 35
+  _health: {fileID: 1282856703}
 --- !u!61 &1282856699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3762,8 +3783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLife: 10
-  delayToKill: 0.2
-  destroyOnKill: 1
+  delayToKill: 1
+  destroyOnKill: 0
   _flashColor: {fileID: 1282856705}
 --- !u!210 &1282856704
 SortingGroup:
@@ -4553,6 +4574,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 587122345}
     m_Modifications:
+    - target: {fileID: 428557529109133951, guid: 3de838754c767a446a5473969062a84e, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 588861349}
     - target: {fileID: 3090786764695304946, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy_1
@@ -6026,7 +6051,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5000455042689278068, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 435809274}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 723227281}
   m_SourcePrefab: {fileID: 100100000, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
 --- !u!1 &2022741072
 GameObject:
