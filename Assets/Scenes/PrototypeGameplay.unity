@@ -3863,6 +3863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  uiTextCoins: {fileID: 1170936998}
 --- !u!4 &1294990525
 Transform:
   m_ObjectHideFlags: 0
