@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance;
 
-    public int coins;
+    public SOInt coins;
 
     public TextMeshProUGUI uiTextCoins;
 
@@ -31,18 +31,18 @@ public class ItemManager : MonoBehaviour
     }
     private void Reset()
     {
-        coins = 0;
+        coins.value = 0;
 
     }
 
     public void AddCoins(int amount = 1)
     {
-        this.coins += amount;
+        this.coins.value += amount;
     }
 
     private void updateUI()
     {
         //uiTextCoins.text = coins.ToString();
-        UIInGameManager.UpdateTextCoins(coins.ToString());
+        UIInGameManager.UpdateTextCoins(coins.value.ToString());
     }
 }
